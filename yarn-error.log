@@ -1,0 +1,46 @@
+Arguments: 
+  /Users/mehmetsonmezates/.nvm/versions/node/v8.2.1/bin/node /usr/local/bin/yarn add mocha nodemon mongoose
+
+PATH: 
+  /Users/mehmetsonmezates/.rvm/gems/ruby-2.2.6/bin:/Users/mehmetsonmezates/.rvm/gems/ruby-2.2.6@global/bin:/Users/mehmetsonmezates/.rvm/rubies/ruby-2.2.6/bin:/Users/mehmetsonmezates/.nvm/versions/node/v8.2.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mehmetsonmezates/.rvm/bin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.2.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "mongodb_stephen",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/msonmezates/MongoDB_Tutorials.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/msonmezates/MongoDB_Tutorials/issues"
+    },
+    "homepage": "https://github.com/msonmezates/MongoDB_Tutorials#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at errnoException (dns.js:50:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
