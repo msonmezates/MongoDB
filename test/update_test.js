@@ -6,11 +6,13 @@ describe('Reading users out of the database', () => {
 
   beforeEach((done) => {
     joe = new User({ name: 'Joe' });
-    joe.save();
+    joe.save()
     .then(() => done());
   });
 
-  it('finds all user with the name of Joe', () => {
-
+  it('finds all user with the name of Joe', (done) => {
+    User.find({ name: 'Joe' })
+      .then((users) => console.log(users));
+      done();
   })
 })
