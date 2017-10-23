@@ -8,7 +8,7 @@ describe('Creating records', () => {
     joe.save()
       .then(() => {
         assert(!joe.isNew) //create new if it doesn't exist
-        done(); 
+        done();
       });
   });
 });
