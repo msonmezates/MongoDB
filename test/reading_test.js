@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const assert = require('assert');
 const User = require('../src/user');
 
 describe('Reading users out of the database', () => {
@@ -15,8 +15,7 @@ describe('Reading users out of the database', () => {
       .then(users => {
         assert(users[0]._id.toString() === joe._id.toString());
         done();
-      })
-      .catch(done());
+      });
   });
 
   it('find a user with a particular id', done => {
@@ -24,7 +23,6 @@ describe('Reading users out of the database', () => {
       .then(user => {
         assert(user.name === 'Joe');
         done();
-      })
-      .catch(done());
+      });
   });
 });
