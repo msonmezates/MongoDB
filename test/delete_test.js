@@ -14,13 +14,18 @@ describe('Deleting a user', () => {
     joe.remove()
       .then(() => User.findOne({ name: 'Joe' }))
       .then(user => {
-        assert(name === null)
+        assert(user === null);
         done();
       });
   });
 
-  it('class method remove', () => {
-    
+  it('class method remove', (done) => {
+    User.remove()
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        assert(user === null);
+        done();
+      });
   });
 
   it('class method findAndRemove', () => {
