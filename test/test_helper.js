@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.Promise = global.Promise;
 
 before((done) => { //before is executed only once to make sure mongoose is connected
@@ -9,9 +10,13 @@ before((done) => { //before is executed only once to make sure mongoose is conne
 });
 
 //beforeEach() runs every time we need to start a test
-beforeEach((done) => {
-  mongoose.connection.collections.users.drop(() => { //clears the database before running each test
-    //Ready to run the next test!
-    done();
+beforeEach(done => {
+  const { users, comments, blogposts } = mongoose.connection.collections;
+
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop();
+      done();
+    });
   });
 });
