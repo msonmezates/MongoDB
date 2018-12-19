@@ -11,6 +11,6 @@ module.exports = () => {
 
   return Promise.all([minAgeArtist, maxAgeArtist])
     .then(result => {
-      return { min: minAgeArtist, max: maxAgeArtist };
+      return { min: result[0], max: result[1] };
     });
 };
