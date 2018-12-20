@@ -28,7 +28,11 @@ const buildQuery = criteria => {
 
   const query = {};
 
-  if(criteria.age) {
+  if(criteria.name) {
+    query.$text = {
+      $search: criteria.name
+    }
+  } else if(criteria.age) {
     query.age = {
       $gte: criteria.age.min,
       $lte: criteria.age.max
