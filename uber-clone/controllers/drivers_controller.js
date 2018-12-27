@@ -18,5 +18,11 @@ module.exports = {
     Driver.findOneAndUpdate({ _id: id }, { $set: driverProps }, { new: true, multi: true })
       .then(driver => res.send({ driver }))
       .catch(next);
+  },
+  delete(req, res, next) {
+    const { id } = req.params;
+    Driver.findOneAndRemove({ _id: id })
+      .then((driver) => res.status(204).send(driver))
+      .catch(next);
   }
 }
