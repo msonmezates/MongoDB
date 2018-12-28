@@ -45,7 +45,7 @@ describe('Drivers controller', () => {
           .end(() => {
             Driver.findOne({ email: 'test@tt.com' })
               .then(driver => {
-                assert(driver === null)
+                assert(driver === null);
                 done();
               });
           });
