@@ -9,7 +9,9 @@ before(done => {
 });
 
 beforeEach(done => {
-  mongoose.connection.collections.drivers.drop()
+  const { drivers } = mongoose.connection.collections;
+  drivers.drop()
+    .then(() => drivers.ensureIndex({ 'geometry.coordinates': '2dsphere' }))
     .then(() => done())
     .catch(() => done());
 });

@@ -6,12 +6,19 @@ module.exports = {
   },
   index(req, res, next) {
     const { lng, lat } = req.query;
-    Driver.geoSearch(
-      { type: 'Point', coordinates: [lng, lat] },
-      { near: [lng, lat], maxDistance: 200000}
-    )
+    Driver.aggregate([{
+      '$geoNear': {
+        near: {
+          type: 'Point',
+          coordinates: [parseFloat(lng), parseFloat(lat)]
+        },
+        spherical: true,
+        maxDistance: 200000,
+        distanceField: 'dist.calculated'
+      }
+    }])
       .then(drivers => res.send(drivers))
-      .catch(err);
+      .catch(next);
   },
   create(req, res, next) {
     const driverProps = req.body;

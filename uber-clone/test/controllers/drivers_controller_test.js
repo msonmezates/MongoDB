@@ -52,7 +52,7 @@ describe('Drivers controller', () => {
       });
   });
 
-  it('GET tp /api/drivers finds drivers in a location', done => {
+  it('GET to /api/drivers finds drivers in a location', done => {
     const seattleDriver = new Driver({
       email: 'seattle@test.com',
       geometry: {
@@ -68,13 +68,14 @@ describe('Drivers controller', () => {
         coordinates: [-80.253, 25.791]
       }
     });
-
+    // test to get miami driver
     Promise.all([ seattleDriver.save(), miamiDriver.save() ])
       .then(() => {
         request(app)
           .get(`/api/drivers?lng=-80&lat=25`)
           .end((err, response) => {
-            console.log(response);
+            assert(response.body.length === 1);
+            assert(response.body[0].email === 'miami@test.com');
             done();
           });
       });
