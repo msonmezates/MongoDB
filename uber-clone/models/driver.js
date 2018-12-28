@@ -11,8 +11,7 @@ const PointSchema = new Schema({
     type: [Number],
     index: '2dsphere',
     required: true
-  },
-  geometry: PointSchema
+  }
 });
 
 const DriverSchema = Schema({
@@ -23,7 +22,8 @@ const DriverSchema = Schema({
   isDriving: {
     type: Boolean,
     default: false
-  }
+  },
+  geometry: PointSchema
 });
 
 const Driver = mongoose.model('driver', DriverSchema); 
